@@ -92,7 +92,7 @@ export function ItemTag({ children = null }: PropsWithChildren) {
   );
 }
 
-export function Item({ children = null }: PropsWithChildren) {
+export function Item({ children}: PropsWithChildren) {
   return (
     <article className={clsx('', 'md:pb-16')}>
       <div
