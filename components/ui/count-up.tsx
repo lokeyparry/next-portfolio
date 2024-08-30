@@ -8,20 +8,22 @@ interface CountUpProps {
 }
 
 function CountUp({ from, to }: CountUpProps) {
-    const nodeRef = useRef(null);
+    const nodeRef = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
-        const node = nodeRef.current || "";
+        const node = nodeRef.current;
 
-        const controls = animate(from, to, {
-            duration: 1.4,
-            ease: 'easeOut',
-            onUpdate(value) {
-                node.textContent = value.toFixed(0);
-            },
-        });
+        if (node) {
+            const controls = animate(from, to, {
+                duration: 1.4,
+                ease: 'easeOut',
+                onUpdate(value) {
+                    node.textContent = value.toFixed(0);
+                },
+            });
 
-        return () => controls.stop();
+            return () => controls.stop();
+        }
     }, [from, to]);
 
     return <span ref={nodeRef}>{to}</span>;
