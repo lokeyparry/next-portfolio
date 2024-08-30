@@ -58,8 +58,9 @@ export const AnimatedMenu = ({ routes }: { routes: any }) => {
                 style={{ pointerEvents: isOpen ? "auto" : "none" }}
             >
                 {
--
-             routes?.map(({ title , idx}) => (
+
+routes?.map(({ title, idx }: { title: string; idx: number }) => (//+
+
             <m.li key={idx} variants={itemVariants}>{title} </m.li>))
 
                 }
