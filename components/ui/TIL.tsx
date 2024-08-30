@@ -129,7 +129,7 @@ interface ItemsProps {
 
 export function Items({
   date,
-  children = null,
+  children,
 
 }: PropsWithChildren<ItemsProps>) {
   return (
